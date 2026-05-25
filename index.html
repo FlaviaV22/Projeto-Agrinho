@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cidade Sustentável</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🏙️ Cidade Sustentável</h1>
+
+    <div class="status">
+      <p>⚡ Energia: <span id="energia">50</span></p>
+      <p>♻️ Reciclagem: <span id="reciclagem">50</span></p>
+      <p>🚌 Transporte: <span id="transporte">50</span></p>
+      <p>💧 Água: <span id="agua">50</span></p>
+      <p>⭐ Pontos: <span id="pontos">0</span></p>
+    </div>
+
+    <div class="botoes">
+      <button onclick="energiaSolar()">Instalar Energia Solar</button>
+      <button onclick="coletaSeletiva()">Criar Coleta Seletiva</button>
+      <button onclick="melhorarTransporte()">Melhorar Transporte</button>
+      <button onclick="economizarAgua()">Campanha de Economia de Água</button>
+    </div>
+
+    <div class="mensagem">
+      <p id="mensagem">Administre sua cidade com sabedoria!</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
