@@ -1,80 +1,132 @@
-let energia = 50;
-let reciclagem = 50;
-let transporte = 50;
-let agua = 50;
 let pontos = 0;
+let moedas = 0;
 
-function atualizarTela() {
-  document.getElementById("energia").innerText = energia;
-  document.getElementById("reciclagem").innerText = reciclagem;
-  document.getElementById("transporte").innerText = transporte;
-  document.getElementById("agua").innerText = agua;
+const desafios = [
+
+{
+  pergunta: "💧 A cidade está desperdiçando água. O que fazer?",
+  opcoes: [
+    {
+      texto: "Criar campanha de economia de água",
+      correta: true
+    },
+    {
+      texto: "Ignorar o problema",
+      correta: false
+    }
+  ]
+},
+
+{
+  pergunta: "♻️ O lixo aumentou na cidade!",
+  opcoes: [
+    {
+      texto: "Implantar coleta seletiva",
+      correta: true
+    },
+    {
+      texto: "Jogar lixo no rio",
+      correta: false
+    }
+  ]
+},
+
+{
+  pergunta: "⚡ O consumo de energia está alto!",
+  opcoes: [
+    {
+      texto: "Usar energia solar",
+      correta: true
+    },
+    {
+      texto: "Construir mais fábricas poluentes",
+      correta: false
+    }
+  ]
+},
+
+{
+  pergunta: "🚗 Há muito trânsito e poluição.",
+  opcoes: [
+    {
+      texto: "Melhorar transporte público",
+      correta: true
+    },
+    {
+      texto: "Aumentar carros nas ruas",
+      correta: false
+    }
+  ]
+}
+
+];
+
+function iniciarJogo() {
+
+  document.getElementById("inicio").classList.add("escondido");
+
+  document.getElementById("jogo").classList.remove("escondido");
+
+  novoDesafio();
+}
+
+function novoDesafio() {
+
+  let sorteio = Math.floor(Math.random() * desafios.length);
+
+  let desafio = desafios[sorteio];
+
+  document.getElementById("desafio").innerText =
+    desafio.pergunta;
+
+  let opcoesHTML = "";
+
+  desafio.opcoes.forEach(opcao => {
+
+    opcoesHTML += `
+      <button onclick="responder(${opcao.correta})">
+        ${opcao.texto}
+      </button>
+    `;
+  });
+
+  document.getElementById("opcoes").innerHTML =
+    opcoesHTML;
+}
+
+function responder(correta) {
+
+  if (correta) {
+
+    pontos += 10;
+    moedas += 5;
+
+    alert("✅ Boa escolha sustentável!");
+
+  } else {
+
+    pontos -= 5;
+
+    alert("❌ Essa ação prejudica o meio ambiente!");
+  }
+
+  atualizarPainel();
+
+  if (pontos >= 50) {
+
+    alert("🏆 Parabéns! Sua cidade virou exemplo de sustentabilidade!");
+
+    location.reload();
+
+  } else {
+
+    novoDesafio();
+  }
+}
+
+function atualizarPainel() {
+
   document.getElementById("pontos").innerText = pontos;
 
-  verificarJogo();
-}
-
-function energiaSolar() {
-  energia += 10;
-  agua -= 2;
-  pontos += 15;
-
-  mensagem("☀️ Energia limpa instalada!");
-  atualizarTela();
-}
-
-function coletaSeletiva() {
-  reciclagem += 10;
-  pontos += 15;
-
-  mensagem("♻️ A cidade agora recicla mais lixo!");
-  atualizarTela();
-}
-
-function melhorarTransporte() {
-  transporte += 10;
-  energia -= 3;
-  pontos += 15;
-
-  mensagem("🚌 Transporte público melhorado!");
-  atualizarTela();
-}
-
-function economizarAgua() {
-  agua += 10;
-  pontos += 15;
-
-  mensagem("💧 Campanha de economia de água realizada!");
-  atualizarTela();
-}
-
-function mensagem(texto) {
-  document.getElementById("mensagem").innerText = texto;
-}
-
-function verificarJogo() {
-
-  if (
-    energia <= 0 ||
-    reciclagem <= 0 ||
-    transporte <= 0 ||
-    agua <= 0
-  ) {
-    mensagem("❌ Sua cidade entrou em crise ambiental!");
-    desativarBotoes();
-  }
-
-  if (pontos >= 100) {
-    mensagem("🏆 Parabéns! Sua cidade é sustentável!");
-    desativarBotoes();
-  }
-}
-
-function desativarBotoes() {
-  let botoes = document.querySelectorAll("button");
-
-  botoes.forEach(botao => {
-    botao.disabled = true;
-    botao.style.background = "gray";
-  });
+  document.getElementById("moedas").innerText = moedas;
 }
