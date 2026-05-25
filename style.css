@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #87ceeb, #dff6ff);
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+h1 {
+  color: #2e8b57;
+}
+
+.status {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.status p {
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.botoes button {
+  margin: 10px;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #2e8b57;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.botoes button:hover {
+  background: #246b45;
+}
+
+.mensagem {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
