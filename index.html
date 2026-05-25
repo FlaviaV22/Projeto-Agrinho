@@ -10,14 +10,14 @@
 </head>
 <body>
 
-  <!-- TELA INICIAL -->
+  <!-- MENU -->
 
   <div id="inicio">
 
     <h1>🌱 MISSÃO VERDE</h1>
 
     <p>
-      Transforme a cidade em um lugar sustentável!
+      Transforme sua cidade em um exemplo sustentável!
     </p>
 
     <button onclick="iniciarJogo()">
@@ -26,17 +26,19 @@
 
   </div>
 
-  <!-- JOGO -->
+  <!-- TELA DA CIDADE -->
 
-  <div id="jogo" class="escondido">
-
-    <!-- PAINEL -->
+  <div id="cidadeTela" class="escondido">
 
     <div class="painel">
 
-      <div>⭐ Pontos: <span id="pontos">0</span></div>
+      <div>⭐ Pontos:
+        <span id="pontos">0</span>
+      </div>
 
-      <div>🌿 Moedas: <span id="moedas">0</span></div>
+      <div>🌿 Moedas:
+        <span id="moedas">0</span>
+      </div>
 
     </div>
 
@@ -44,24 +46,11 @@
 
     <div class="cidade">
 
-      <!-- SOL -->
-
       <div class="sol"></div>
-
-      <!-- PRÉDIOS -->
 
       <div class="predio predio1"></div>
       <div class="predio predio2"></div>
       <div class="predio predio3"></div>
-      <div class="predio predio4"></div>
-
-      <!-- ÁRVORES -->
-
-      <div class="arvore arvore1"></div>
-      <div class="arvore arvore2"></div>
-      <div class="arvore arvore3"></div>
-
-      <!-- PERSONAGEM -->
 
       <div id="personagem">
         👧
@@ -69,21 +58,45 @@
 
     </div>
 
-    <!-- MISSÕES -->
+    <!-- MISSÃO -->
 
     <div class="missao-box">
 
-      <h2>📜 Missão Atual</h2>
+      <h2>📜 Missão</h2>
 
       <p id="missao-texto"></p>
 
-      <button onclick="cumprirMissao()">
-
+      <button onclick="abrirMissao()">
         REALIZAR MISSÃO
-
       </button>
 
     </div>
+
+  </div>
+
+  <!-- TELA DA MISSÃO -->
+
+  <div id="missaoTela" class="escondido">
+
+    <h1 id="tituloMissao"></h1>
+
+    <!-- CENÁRIO -->
+
+    <div id="cenarioMissao">
+
+      <div id="areaMissao"></div>
+
+    </div>
+
+    <button onclick="executarMissao()">
+      EXECUTAR AÇÃO
+    </button>
+
+    <br><br>
+
+    <button onclick="voltarCidade()">
+      VOLTAR
+    </button>
 
   </div>
 
