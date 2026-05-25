@@ -3,48 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cidade Sustentável</title>
+  <title>Missão Verde</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- TELA INICIAL -->
-  <div id="inicio" class="tela">
-    <h1>🏙️ Cidade Sustentável</h1>
+
+  <div id="inicio">
+
+    <h1>🌱 MISSÃO VERDE</h1>
 
     <div class="cidade">
       🏢 🏠 🌳 🚲 ☀️
     </div>
 
-    <p>
-      Ajude a cidade a se tornar sustentável!
+    <p class="texto">
+      Ajude a transformar a cidade em um lugar sustentável!
     </p>
 
-    <button onclick="iniciarJogo()">COMEÇAR</button>
+    <button onclick="iniciarJogo()">
+      COMEÇAR
+    </button>
+
   </div>
 
-  <!-- TELA DO JOGO -->
-  <div id="jogo" class="tela escondido">
+  <!-- JOGO -->
 
-    <h1>🌱 Missão Verde</h1>
+  <div id="jogo" class="escondido">
+
+    <h1>🏙️ Cidade Sustentável</h1>
+
+    <!-- PAINEL -->
 
     <div class="painel">
+
       <p>⭐ Pontos: <span id="pontos">0</span></p>
-      <p>🌿 Moedas Verdes: <span id="moedas">0</span></p>
-    </div>
 
-    <div class="cidade-grande">
-      🏢 🏠 🌳 🚲 🚍 ☀️ 🌎
-    </div>
-
-    <div class="desafio-box">
-      <h2>📢 Desafio Atual</h2>
-
-      <p id="desafio">
-        Clique em começar para receber um desafio.
+      <p>🌿 Moedas Verdes:
+        <span id="moedas">0</span>
       </p>
 
-      <div id="opcoes"></div>
+    </div>
+
+    <!-- CIDADE -->
+
+    <div class="cidade-grande">
+
+      🏢 🏠 🌳 ☀️ 🚲 🚍
+
+    </div>
+
+    <!-- PERSONAGEM -->
+
+    <div class="personagem-area">
+
+      <div id="personagem">
+        👧
+      </div>
+
+    </div>
+
+    <!-- MISSÃO -->
+
+    <div class="missao-box">
+
+      <h2>📜 Missão Atual</h2>
+
+      <p id="missao-texto"></p>
+
+      <button id="btn-missao"
+        onclick="cumprirMissao()">
+
+        REALIZAR MISSÃO
+
+      </button>
+
     </div>
 
   </div>
