@@ -1,132 +1,82 @@
 let pontos = 0;
 let moedas = 0;
 
-const desafios = [
+const missoes = [
 
-{
-  pergunta: "💧 A cidade está desperdiçando água. O que fazer?",
-  opcoes: [
-    {
-      texto: "Criar campanha de economia de água",
-      correta: true
-    },
-    {
-      texto: "Ignorar o problema",
-      correta: false
-    }
-  ]
-},
-
-{
-  pergunta: "♻️ O lixo aumentou na cidade!",
-  opcoes: [
-    {
-      texto: "Implantar coleta seletiva",
-      correta: true
-    },
-    {
-      texto: "Jogar lixo no rio",
-      correta: false
-    }
-  ]
-},
-
-{
-  pergunta: "⚡ O consumo de energia está alto!",
-  opcoes: [
-    {
-      texto: "Usar energia solar",
-      correta: true
-    },
-    {
-      texto: "Construir mais fábricas poluentes",
-      correta: false
-    }
-  ]
-},
-
-{
-  pergunta: "🚗 Há muito trânsito e poluição.",
-  opcoes: [
-    {
-      texto: "Melhorar transporte público",
-      correta: true
-    },
-    {
-      texto: "Aumentar carros nas ruas",
-      correta: false
-    }
-  ]
-}
+  "🌳 Plantar árvores na praça",
+  "♻️ Recolher lixo reciclável",
+  "💧 Economizar água na cidade",
+  "☀️ Instalar painéis solares",
+  "🚲 Incentivar uso de bicicletas",
+  "🚌 Melhorar transporte público",
+  "🌎 Limpar rio da cidade",
+  "🌱 Criar horta comunitária"
 
 ];
 
 function iniciarJogo() {
 
-  document.getElementById("inicio").classList.add("escondido");
+  document.getElementById("inicio")
+    .classList.add("escondido");
 
-  document.getElementById("jogo").classList.remove("escondido");
+  document.getElementById("jogo")
+    .classList.remove("escondido");
 
-  novoDesafio();
+  novaMissao();
 }
 
-function novoDesafio() {
+function novaMissao() {
 
-  let sorteio = Math.floor(Math.random() * desafios.length);
+  let sorteio =
+    Math.floor(Math.random() * missoes.length);
 
-  let desafio = desafios[sorteio];
-
-  document.getElementById("desafio").innerText =
-    desafio.pergunta;
-
-  let opcoesHTML = "";
-
-  desafio.opcoes.forEach(opcao => {
-
-    opcoesHTML += `
-      <button onclick="responder(${opcao.correta})">
-        ${opcao.texto}
-      </button>
-    `;
-  });
-
-  document.getElementById("opcoes").innerHTML =
-    opcoesHTML;
+  document.getElementById("missao-texto")
+    .innerText = missoes[sorteio];
 }
 
-function responder(correta) {
+function cumprirMissao() {
 
-  if (correta) {
+  pontos += 10;
 
-    pontos += 10;
-    moedas += 5;
-
-    alert("✅ Boa escolha sustentável!");
-
-  } else {
-
-    pontos -= 5;
-
-    alert("❌ Essa ação prejudica o meio ambiente!");
-  }
+  moedas += 5;
 
   atualizarPainel();
 
-  if (pontos >= 50) {
+  animarPersonagem();
 
-    alert("🏆 Parabéns! Sua cidade virou exemplo de sustentabilidade!");
+  alert("✅ Missão sustentável concluída!");
+
+  if (pontos >= 100) {
+
+    alert("🏆 Parabéns! Sua cidade virou exemplo sustentável!");
 
     location.reload();
 
   } else {
 
-    novoDesafio();
+    novaMissao();
   }
 }
 
 function atualizarPainel() {
 
-  document.getElementById("pontos").innerText = pontos;
+  document.getElementById("pontos")
+    .innerText = pontos;
 
-  document.getElementById("moedas").innerText = moedas;
+  document.getElementById("moedas")
+    .innerText = moedas;
+}
+
+function animarPersonagem() {
+
+  let personagem =
+    document.getElementById("personagem");
+
+  personagem.innerHTML = "🦸‍♀️";
+
+  setTimeout(() => {
+
+    personagem.innerHTML = "👧";
+
+  }, 500);
 }
