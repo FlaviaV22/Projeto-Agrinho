@@ -3,13 +3,13 @@ let moedas = 0;
 
 const missoes = [
 
-  "🌳 Plantar árvores na praça",
+  "🌳 Plantar árvores na cidade",
   "♻️ Recolher lixo reciclável",
-  "💧 Economizar água na cidade",
-  "☀️ Instalar painéis solares",
-  "🚲 Incentivar uso de bicicletas",
+  "💧 Economizar água",
+  "☀️ Instalar energia solar",
+  "🚲 Incentivar bicicletas",
   "🚌 Melhorar transporte público",
-  "🌎 Limpar rio da cidade",
+  "🌎 Limpar rios",
   "🌱 Criar horta comunitária"
 
 ];
@@ -37,18 +37,15 @@ function novaMissao() {
 function cumprirMissao() {
 
   pontos += 10;
-
   moedas += 5;
 
   atualizarPainel();
 
   animarPersonagem();
 
-  alert("✅ Missão sustentável concluída!");
-
   if (pontos >= 100) {
 
-    alert("🏆 Parabéns! Sua cidade virou exemplo sustentável!");
+    alert("🏆 Sua cidade virou exemplo sustentável!");
 
     location.reload();
 
