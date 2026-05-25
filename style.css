@@ -1,54 +1,68 @@
 body {
   margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #87ceeb, #dff6ff);
   font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #87ceeb, #dff6ff);
+  text-align: center;
 }
 
-.container {
-  width: 80%;
-  max-width: 700px;
-  margin: 40px auto;
-  background: white;
+.tela {
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-  text-align: center;
+}
+
+.escondido {
+  display: none;
 }
 
 h1 {
   color: #2e8b57;
+  font-size: 40px;
 }
 
-.status {
-  margin: 20px 0;
-  font-size: 20px;
+.cidade {
+  font-size: 60px;
+  margin: 30px 0;
 }
 
-.status p {
-  background: #f0f0f0;
-  padding: 10px;
-  border-radius: 10px;
+.cidade-grande {
+  font-size: 70px;
+  margin: 20px;
 }
 
-.botoes button {
+button {
+  padding: 15px 25px;
   margin: 10px;
-  padding: 15px;
   border: none;
   border-radius: 10px;
   background: #2e8b57;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   transition: 0.3s;
 }
 
-.botoes button:hover {
+button:hover {
   background: #246b45;
 }
 
-.mensagem {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
+.painel {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 22px;
+  margin: 20px;
+}
+
+.desafio-box {
+  background: white;
+  width: 80%;
+  max-width: 700px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+#desafio {
+  font-size: 22px;
+  margin: 20px;
 }
