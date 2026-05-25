@@ -8,29 +8,48 @@
 </head>
 <body>
 
-  <div class="container">
+  <!-- TELA INICIAL -->
+  <div id="inicio" class="tela">
     <h1>🏙️ Cidade Sustentável</h1>
 
-    <div class="status">
-      <p>⚡ Energia: <span id="energia">50</span></p>
-      <p>♻️ Reciclagem: <span id="reciclagem">50</span></p>
-      <p>🚌 Transporte: <span id="transporte">50</span></p>
-      <p>💧 Água: <span id="agua">50</span></p>
+    <div class="cidade">
+      🏢 🏠 🌳 🚲 ☀️
+    </div>
+
+    <p>
+      Ajude a cidade a se tornar sustentável!
+    </p>
+
+    <button onclick="iniciarJogo()">COMEÇAR</button>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="jogo" class="tela escondido">
+
+    <h1>🌱 Missão Verde</h1>
+
+    <div class="painel">
       <p>⭐ Pontos: <span id="pontos">0</span></p>
+      <p>🌿 Moedas Verdes: <span id="moedas">0</span></p>
     </div>
 
-    <div class="botoes">
-      <button onclick="energiaSolar()">Instalar Energia Solar</button>
-      <button onclick="coletaSeletiva()">Criar Coleta Seletiva</button>
-      <button onclick="melhorarTransporte()">Melhorar Transporte</button>
-      <button onclick="economizarAgua()">Campanha de Economia de Água</button>
+    <div class="cidade-grande">
+      🏢 🏠 🌳 🚲 🚍 ☀️ 🌎
     </div>
 
-    <div class="mensagem">
-      <p id="mensagem">Administre sua cidade com sabedoria!</p>
+    <div class="desafio-box">
+      <h2>📢 Desafio Atual</h2>
+
+      <p id="desafio">
+        Clique em começar para receber um desafio.
+      </p>
+
+      <div id="opcoes"></div>
     </div>
+
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
