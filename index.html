@@ -1,186 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agro Sustentável</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>EarthGuard Agro</title>
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 
-  <!-- AOS -->
-  <link rel="stylesheet"
-    href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-
-  <!-- Charts -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="overlay">
-      <h1 data-aos="fade-up">Agro Sustentável</h1>
-      <p data-aos="fade-up" data-aos-delay="200">
-        Produzir mais sem destruir o planeta
-      </p>
-      <a href="#tecnicas" class="btn">Explorar</a>
-    </div>
+  <header>
+    <h1>🌍 EarthGuard Agro</h1>
+    <p>Monitoramento global da agricultura</p>
   </header>
 
-  <!-- ESTATÍSTICAS -->
-  <section class="stats">
-    <h2 data-aos="fade-right">Impacto Positivo</h2>
+  <div class="container">
 
-    <div class="cards">
-      <div class="card" data-aos="zoom-in">
-        <h3>70%</h3>
-        <p>Redução no desperdício de água</p>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <div class="card">
+        <h2>Indicadores</h2>
+
+        <div class="indicator">
+          <span>🔥 Queimadas</span>
+          <strong id="fires">245</strong>
+        </div>
+
+        <div class="indicator">
+          <span>🌳 Desmatamento</span>
+          <strong id="forest">1.240 ha</strong>
+        </div>
+
+        <div class="indicator">
+          <span>🌱 Produção Sustentável</span>
+          <strong id="sustainable">78%</strong>
+        </div>
       </div>
 
-      <div class="card" data-aos="zoom-in" data-aos-delay="200">
-        <h3>45%</h3>
-        <p>Menos emissão de carbono</p>
+      <div class="card">
+        <h2>Produção Agrícola</h2>
+        <canvas id="agroChart"></canvas>
       </div>
 
-      <div class="card" data-aos="zoom-in" data-aos-delay="400">
-        <h3>80%</h3>
-        <p>Maior produtividade sustentável</p>
-      </div>
-    </div>
-  </section>
+    </aside>
 
-  <!-- TÉCNICAS -->
-  <section id="tecnicas" class="techniques">
-    <h2 data-aos="fade-up">Técnicas Sustentáveis</h2>
+    <!-- Mapa -->
+    <main>
+      <div id="map"></div>
+    </main>
 
-    <div class="grid">
+  </div>
 
-      <div class="box" data-aos="flip-left">
-        <h3>Rotação de Culturas</h3>
-        <p>
-          Preserva nutrientes do solo e reduz pragas.
-        </p>
-      </div>
-
-      <div class="box" data-aos="flip-left" data-aos-delay="200">
-        <h3>Irrigação Inteligente</h3>
-        <p>
-          Economia de água através de sensores.
-        </p>
-      </div>
-
-      <div class="box" data-aos="flip-left" data-aos-delay="400">
-        <h3>Energia Solar</h3>
-        <p>
-          Uso de energia limpa no campo.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- COMPARAÇÃO -->
-  <section class="comparison">
-    <h2 data-aos="fade-up">Antes e Depois</h2>
-
-    <div class="compare-container">
-
-      <div class="before" data-aos="fade-right">
-        <h3>Antes</h3>
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef"
-          alt="Antes">
-      </div>
-
-      <div class="after" data-aos="fade-left">
-        <h3>Depois</h3>
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-          alt="Depois">
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CALCULADORA -->
-  <section class="calculator">
-    <h2 data-aos="fade-up">Calculadora de Impacto Ambiental</h2>
-
-    <div class="calc-box" data-aos="zoom-in">
-      <input type="number" id="hectares"
-        placeholder="Quantidade de hectares">
-
-      <button onclick="calcularImpacto()">
-        Calcular
-      </button>
-
-      <h3 id="resultado"></h3>
-    </div>
-  </section>
-
-  <!-- GRÁFICO -->
-  <section class="chart-section">
-    <h2 data-aos="fade-up">Produção Sustentável</h2>
-
-    <canvas id="grafico"></canvas>
-  </section>
-
-  <!-- LINHA DO TEMPO -->
-  <section class="timeline">
-    <h2 data-aos="fade-up">Evolução da Agricultura Sustentável</h2>
-
-    <div class="timeline-item" data-aos="fade-right">
-      <h3>1990</h3>
-      <p>Primeiras iniciativas ecológicas.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-left">
-      <h3>2005</h3>
-      <p>Avanço da irrigação inteligente.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-right">
-      <h3>2024</h3>
-      <p>Uso massivo de tecnologia verde.</p>
-    </div>
-  </section>
-
-  <!-- BLOG -->
-  <section class="blog">
-    <h2 data-aos="fade-up">Últimas Notícias</h2>
-
-    <div class="posts">
-
-      <div class="post" data-aos="zoom-in">
-        <h3>Agro e Energia Solar</h3>
-        <p>
-          Fazendas reduzem custos usando energia renovável.
-        </p>
-      </div>
-
-      <div class="post" data-aos="zoom-in" data-aos-delay="200">
-        <h3>Uso Inteligente da Água</h3>
-        <p>
-          Novas técnicas diminuem desperdícios.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Agro Sustentável</p>
-  </footer>
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <!-- JS -->
-  <script src="script.js"></script>
-
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <script>
-    AOS.init();
-  </script>
+  <script src="app.js"></script>
 
 </body>
 </html>
