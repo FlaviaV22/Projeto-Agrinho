@@ -1,351 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>fazendaResultado</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-    overflow:hidden;
-    background:#87CEEB;
-}
-
-/* ================= MENU ================= */
-
-#menuInicial{
-    width:100vw;
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    background:
-    linear-gradient(to bottom,#87CEEB 0%,#9fe6ff 40%,#7ed957 100%);
-}
-
-.titulo{
-    font-size:70px;
-    color:white;
-    text-shadow:4px 4px #2d6a1f;
-    margin-bottom:40px;
-}
-
-.btn{
-    padding:22px 50px;
-    border:none;
-    border-radius:20px;
-    font-size:30px;
-    cursor:pointer;
-    background:#2ecc71;
-    color:white;
-    box-shadow:0 8px #239b56;
-    transition:0.2s;
-}
-
-.btn:hover{
-    transform:scale(1.05);
-}
-
-.btn:active{
-    transform:translateY(5px);
-    box-shadow:0 3px #239b56;
-}
-
-/* ================= JOGO ================= */
-
-#jogo{
-    display:none;
-    width:100vw;
-    height:100vh;
-    position:relative;
-    overflow:hidden;
-    background:
-    linear-gradient(to bottom,#87CEEB 0%,#b8ecff 30%,#6ecb63 31%,#58b94f 100%);
-}
-
-/* HUD */
-
-#hud{
-    position:absolute;
-    top:15px;
-    left:15px;
-    background:rgba(0,0,0,0.5);
-    color:white;
-    padding:15px;
-    border-radius:15px;
-    z-index:999;
-    font-size:20px;
-}
-
-/* CASA */
-
-.casa{
-    position:absolute;
-    width:170px;
-    height:170px;
-    background:#d35400;
-    left:70%;
-    top:45%;
-    border-radius:10px;
-}
-
-.telhad{
-    position:absolute;
-    width:0;
-    height:0;
-    border-left:100px solid transparent;
-    border-right:100px solid transparent;
-    border-bottom:90px solid #8e2b0f;
-    top:-70px;
-    left:-15px;
-}
-
-.porta{
-    position:absolute;
-    width:40px;
-    height:70px;
-    background:#5c3317;
-    bottom:0;
-    left:65px;
-}
-
-/* ÁRVORES */
-
-.arvore{
-    position:absolute;
-}
-
-.tronco{
-    width:20px;
-    height:60px;
-    background:#6b3e26;
-    margin:auto;
-}
-
-.copa{
-    width:80px;
-    height:80px;
-    background:#2ecc71;
-    border-radius:50%;
-    margin-left:-30px;
-    animation:balancar 2s infinite alternate;
-}
-
-@keyframes balancar{
-    from{ transform:rotate(-2deg);}
-    to{ transform:rotate(2deg);}
-}
-
-/* SOLO */
-
-.areaPlantio{
-    position:absolute;
-    left:120px;
-    top:330px;
-    display:grid;
-    grid-template-columns:repeat(6,70px);
-    gap:12px;
-}
-
-.lote{
-    width:70px;
-    height:70px;
-    background:#8b5a2b;
-    border:4px solid #5e3815;
-    cursor:pointer;
-    position:relative;
-    border-radius:8px;
-}
-
-.planta{
-    position:absolute;
-    width:40px;
-    height:40px;
-    background:#2ecc71;
-    border-radius:50%;
-    bottom:8px;
-    left:11px;
-    animation:crescer 0.5s;
-}
-
-@keyframes crescer{
-    from{
-        transform:scale(0);
-    }
-    to{
-        transform:scale(1);
-    }
-}
-
-/* NUVENS */
-
-.nuvem{
-    position:absolute;
-    width:120px;
-    height:60px;
-    background:white;
-    border-radius:50px;
-    opacity:0.9;
-    animation:moverNuvem 30s linear infinite;
-}
-
-.nuvem::before,
-.nuvem::after{
-    content:"";
-    position:absolute;
-    background:white;
-    border-radius:50%;
-}
-
-.nuvem::before{
-    width:50px;
-    height:50px;
-    top:-20px;
-    left:15px;
-}
-
-.nuvem::after{
-    width:70px;
-    height:70px;
-    top:-30px;
-    right:15px;
-}
-
-@keyframes moverNuvem{
-    from{
-        left:-200px;
-    }
-    to{
-        left:110%;
-    }
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro Forte - Futuro Sustentável</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- MENU -->
-<div id="menuInicial">
-    <h1 class="titulo">🚜 fazendaResultado</h1>
+<header>
+  <nav>
+    <h1>Agro Forte</h1>
 
-    <button class="btn" onclick="iniciarJogo()">
-        🌱 Começar Agora
-    </button>
-</div>
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+      <li><a href="#tecnologia">Tecnologia</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+    </ul>
+  </nav>
+</header>
 
-<!-- JOGO -->
-<div id="jogo">
+<section class="hero" id="inicio">
+  <div class="overlay">
+    <h2>Agro Forte, Futuro Sustentável</h2>
+    <p>Equilíbrio entre produção e meio ambiente</p>
+    <a href="#sobre" class="btn">Saiba Mais</a>
+  </div>
+</section>
 
-    <!-- HUD -->
-    <div id="hud">
-        🌾 Fazenda <br>
-        💰 Moedas: <span id="moedas">0</span><br>
-        🌱 Plantas: <span id="plantas">0</span>
-    </div>
+<section class="sobre" id="sobre">
+  <div class="texto">
+    <h2>O Agro Sustentável</h2>
+    <p>
+      A agricultura sustentável busca produzir alimentos de forma eficiente,
+      preservando os recursos naturais e garantindo qualidade de vida para
+      as futuras gerações.
+    </p>
+  </div>
 
-    <!-- CASA -->
-    <div class="casa">
-        <div class="telhad"></div>
-        <div class="porta"></div>
-    </div>
+  <img src="assets/imagens/agro.jpg" alt="">
+</section>
 
-    <!-- ÁRVORES -->
-    <div class="arvore" style="left:50px; top:250px;">
-        <div class="copa"></div>
-        <div class="tronco"></div>
-    </div>
+<section class="cards" id="sustentabilidade">
 
-    <div class="arvore" style="left:850px; top:220px;">
-        <div class="copa"></div>
-        <div class="tronco"></div>
-    </div>
+  <div class="card">
+    <h3>🌱 Preservação</h3>
+    <p>Proteção das florestas, rios e biodiversidade.</p>
+  </div>
 
-    <div class="arvore" style="left:1000px; top:420px;">
-        <div class="copa"></div>
-        <div class="tronco"></div>
-    </div>
+  <div class="card">
+    <h3>🚜 Tecnologia</h3>
+    <p>Uso de máquinas modernas e agricultura inteligente.</p>
+  </div>
 
-    <!-- NUVENS -->
-    <div class="nuvem" style="top:60px;"></div>
-    <div class="nuvem" style="top:130px; animation-duration:40s;"></div>
+  <div class="card">
+    <h3>💧 Recursos Naturais</h3>
+    <p>Economia de água e energia no campo.</p>
+  </div>
 
-    <!-- SOLO -->
-    <div class="areaPlantio" id="areaPlantio"></div>
+</section>
 
-</div>
+<section class="futuro" id="tecnologia">
 
-<script>
+  <div class="conteudo">
+    <h2>Tecnologia e Sustentabilidade</h2>
 
-const areaPlantio = document.getElementById("areaPlantio");
-const plantasTexto = document.getElementById("plantas");
-const moedasTexto = document.getElementById("moedas");
+    <p>
+      A inovação tecnológica ajuda produtores rurais a aumentarem a produtividade
+      sem prejudicar o meio ambiente.
+    </p>
+  </div>
 
-let plantas = 0;
-let moedas = 0;
+</section>
 
-/* MENU -> JOGO */
-function iniciarJogo(){
-    document.getElementById("menuInicial").style.display = "none";
-    document.getElementById("jogo").style.display = "block";
-}
+<section class="galeria" id="galeria">
 
-/* CRIAR LOTES */
-for(let i=0;i<18;i++){
+  <h2>Galeria do Campo</h2>
 
-    const lote = document.createElement("div");
-    lote.classList.add("lote");
+  <div class="imagens">
+    <img src="assets/imagens/campo1.jpg">
+    <img src="assets/imagens/campo2.jpg">
+    <img src="assets/imagens/campo3.jpg">
+  </div>
 
-    lote.addEventListener("click", ()=>{
+</section>
 
-        if(!lote.dataset.plantado){
+<footer>
+  <p>Projeto Agrinho 2026 • Agro Forte, Futuro Sustentável</p>
+</footer>
 
-            // plantar
-            const planta = document.createElement("div");
-            planta.classList.add("planta");
-
-            lote.appendChild(planta);
-
-            lote.dataset.plantado = "sim";
-
-            plantas++;
-            plantasTexto.innerText = plantas;
-
-            // crescimento
-            setTimeout(()=>{
-
-                planta.style.background = "#27ae60";
-                planta.style.transform = "scale(1.2)";
-
-            },2000);
-
-            // colher
-            setTimeout(()=>{
-
-                lote.innerHTML = "";
-                lote.dataset.plantado = "";
-
-                moedas += 5;
-                moedasTexto.innerText = moedas;
-
-            },5000);
-
-        }
-
-    });
-
-    areaPlantio.appendChild(lote);
-
-}
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
