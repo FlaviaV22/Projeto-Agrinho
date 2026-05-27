@@ -1,86 +1,351 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>fazendaResultado</title>
 
-  <title>Minha Fazenda</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-  <link rel="stylesheet" href="fazenda.css">
+body{
+    overflow:hidden;
+    background:#87CEEB;
+}
+
+/* ================= MENU ================= */
+
+#menuInicial{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    background:
+    linear-gradient(to bottom,#87CEEB 0%,#9fe6ff 40%,#7ed957 100%);
+}
+
+.titulo{
+    font-size:70px;
+    color:white;
+    text-shadow:4px 4px #2d6a1f;
+    margin-bottom:40px;
+}
+
+.btn{
+    padding:22px 50px;
+    border:none;
+    border-radius:20px;
+    font-size:30px;
+    cursor:pointer;
+    background:#2ecc71;
+    color:white;
+    box-shadow:0 8px #239b56;
+    transition:0.2s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.btn:active{
+    transform:translateY(5px);
+    box-shadow:0 3px #239b56;
+}
+
+/* ================= JOGO ================= */
+
+#jogo{
+    display:none;
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    background:
+    linear-gradient(to bottom,#87CEEB 0%,#b8ecff 30%,#6ecb63 31%,#58b94f 100%);
+}
+
+/* HUD */
+
+#hud{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    padding:15px;
+    border-radius:15px;
+    z-index:999;
+    font-size:20px;
+}
+
+/* CASA */
+
+.casa{
+    position:absolute;
+    width:170px;
+    height:170px;
+    background:#d35400;
+    left:70%;
+    top:45%;
+    border-radius:10px;
+}
+
+.telhad{
+    position:absolute;
+    width:0;
+    height:0;
+    border-left:100px solid transparent;
+    border-right:100px solid transparent;
+    border-bottom:90px solid #8e2b0f;
+    top:-70px;
+    left:-15px;
+}
+
+.porta{
+    position:absolute;
+    width:40px;
+    height:70px;
+    background:#5c3317;
+    bottom:0;
+    left:65px;
+}
+
+/* ÁRVORES */
+
+.arvore{
+    position:absolute;
+}
+
+.tronco{
+    width:20px;
+    height:60px;
+    background:#6b3e26;
+    margin:auto;
+}
+
+.copa{
+    width:80px;
+    height:80px;
+    background:#2ecc71;
+    border-radius:50%;
+    margin-left:-30px;
+    animation:balancar 2s infinite alternate;
+}
+
+@keyframes balancar{
+    from{ transform:rotate(-2deg);}
+    to{ transform:rotate(2deg);}
+}
+
+/* SOLO */
+
+.areaPlantio{
+    position:absolute;
+    left:120px;
+    top:330px;
+    display:grid;
+    grid-template-columns:repeat(6,70px);
+    gap:12px;
+}
+
+.lote{
+    width:70px;
+    height:70px;
+    background:#8b5a2b;
+    border:4px solid #5e3815;
+    cursor:pointer;
+    position:relative;
+    border-radius:8px;
+}
+
+.planta{
+    position:absolute;
+    width:40px;
+    height:40px;
+    background:#2ecc71;
+    border-radius:50%;
+    bottom:8px;
+    left:11px;
+    animation:crescer 0.5s;
+}
+
+@keyframes crescer{
+    from{
+        transform:scale(0);
+    }
+    to{
+        transform:scale(1);
+    }
+}
+
+/* NUVENS */
+
+.nuvem{
+    position:absolute;
+    width:120px;
+    height:60px;
+    background:white;
+    border-radius:50px;
+    opacity:0.9;
+    animation:moverNuvem 30s linear infinite;
+}
+
+.nuvem::before,
+.nuvem::after{
+    content:"";
+    position:absolute;
+    background:white;
+    border-radius:50%;
+}
+
+.nuvem::before{
+    width:50px;
+    height:50px;
+    top:-20px;
+    left:15px;
+}
+
+.nuvem::after{
+    width:70px;
+    height:70px;
+    top:-30px;
+    right:15px;
+}
+
+@keyframes moverNuvem{
+    from{
+        left:-200px;
+    }
+    to{
+        left:110%;
+    }
+}
+
+</style>
 </head>
 <body>
 
-  <div class="game">
+<!-- MENU -->
+<div id="menuInicial">
+    <h1 class="titulo">🚜 fazendaResultado</h1>
+
+    <button class="btn" onclick="iniciarJogo()">
+        🌱 Começar Agora
+    </button>
+</div>
+
+<!-- JOGO -->
+<div id="jogo">
 
     <!-- HUD -->
-
-    <div class="hud">
-
-      <h2>🌾 Minha Fazenda</h2>
-
-      <div class="info">
-        💰 Moedas: <span id="coins">100</span>
-      </div>
-
-      <div class="info">
-        🌱 Plantações: <span id="plantsCount">0</span>
-      </div>
-
-      <div class="info">
-        🐄 Animais: 5
-      </div>
-
-      <button onclick="plantar()">
-        🌱 Plantar
-      </button>
-
-      <button onclick="colher()">
-        🚜 Colher
-      </button>
-
+    <div id="hud">
+        🌾 Fazenda <br>
+        💰 Moedas: <span id="moedas">0</span><br>
+        🌱 Plantas: <span id="plantas">0</span>
     </div>
 
-    <!-- SOL -->
-
-    <div class="sun"></div>
-
     <!-- CASA -->
-
-    <div class="house">
-
-      <div class="roof"></div>
-
-      <div class="base">
-        <div class="door"></div>
-      </div>
-
+    <div class="casa">
+        <div class="telhad"></div>
+        <div class="porta"></div>
     </div>
 
     <!-- ÁRVORES -->
-
-    <div class="tree tree1">
-      <div class="leaf"></div>
-      <div class="trunk"></div>
+    <div class="arvore" style="left:50px; top:250px;">
+        <div class="copa"></div>
+        <div class="tronco"></div>
     </div>
 
-    <div class="tree tree2">
-      <div class="leaf"></div>
-      <div class="trunk"></div>
+    <div class="arvore" style="left:850px; top:220px;">
+        <div class="copa"></div>
+        <div class="tronco"></div>
     </div>
 
-    <!-- CAMPO -->
-
-    <div class="field" id="field"></div>
-
-    <!-- PERSONAGEM -->
-
-    <div class="player" id="player">
-      🚜
+    <div class="arvore" style="left:1000px; top:420px;">
+        <div class="copa"></div>
+        <div class="tronco"></div>
     </div>
 
-  </div>
+    <!-- NUVENS -->
+    <div class="nuvem" style="top:60px;"></div>
+    <div class="nuvem" style="top:130px; animation-duration:40s;"></div>
 
-  <script src="fazenda.js"></script>
+    <!-- SOLO -->
+    <div class="areaPlantio" id="areaPlantio"></div>
+
+</div>
+
+<script>
+
+const areaPlantio = document.getElementById("areaPlantio");
+const plantasTexto = document.getElementById("plantas");
+const moedasTexto = document.getElementById("moedas");
+
+let plantas = 0;
+let moedas = 0;
+
+/* MENU -> JOGO */
+function iniciarJogo(){
+    document.getElementById("menuInicial").style.display = "none";
+    document.getElementById("jogo").style.display = "block";
+}
+
+/* CRIAR LOTES */
+for(let i=0;i<18;i++){
+
+    const lote = document.createElement("div");
+    lote.classList.add("lote");
+
+    lote.addEventListener("click", ()=>{
+
+        if(!lote.dataset.plantado){
+
+            // plantar
+            const planta = document.createElement("div");
+            planta.classList.add("planta");
+
+            lote.appendChild(planta);
+
+            lote.dataset.plantado = "sim";
+
+            plantas++;
+            plantasTexto.innerText = plantas;
+
+            // crescimento
+            setTimeout(()=>{
+
+                planta.style.background = "#27ae60";
+                planta.style.transform = "scale(1.2)";
+
+            },2000);
+
+            // colher
+            setTimeout(()=>{
+
+                lote.innerHTML = "";
+                lote.dataset.plantado = "";
+
+                moedas += 5;
+                moedasTexto.innerText = moedas;
+
+            },5000);
+
+        }
+
+    });
+
+    areaPlantio.appendChild(lote);
+
+}
+
+</script>
 
 </body>
 </html>
