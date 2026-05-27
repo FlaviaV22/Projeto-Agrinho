@@ -1,140 +1,54 @@
-let pontos = 0;
-let moedas = 0;
+// CALCULADORA
 
-let missaoAtual = "";
+function calcularImpacto() {
 
-const missoes = [
+  let hectares =
+    document.getElementById("hectares").value;
 
-  "🌳 Plantar árvores",
-  "♻️ Recolher lixo",
-  "💧 Economizar água",
-  "☀️ Instalar energia solar"
+  let economiaAgua = hectares * 500;
 
-];
-
-function iniciarJogo() {
-
-  document.getElementById("inicio")
-    .classList.add("escondido");
-
-  document.getElementById("cidadeTela")
-    .classList.remove("escondido");
-
-  novaMissao();
+  document.getElementById("resultado")
+    .innerHTML =
+    `Economia estimada:
+    ${economiaAgua} litros de água`;
 }
 
-function novaMissao() {
 
-  let sorteio =
-    Math.floor(Math.random() * missoes.length);
+// CHART.JS
 
-  missaoAtual = missoes[sorteio];
+const ctx =
+document.getElementById('grafico');
 
-  document.getElementById("missao-texto")
-    .innerText = missaoAtual;
-}
+new Chart(ctx, {
+  type: 'bar',
 
-function abrirMissao() {
+  data: {
+    labels: [
+      '2018',
+      '2019',
+      '2020',
+      '2021',
+      '2022',
+      '2023'
+    ],
 
-  document.getElementById("cidadeTela")
-    .classList.add("escondido");
+    datasets: [{
+      label: 'Produção Sustentável',
 
-  document.getElementById("missaoTela")
-    .classList.remove("escondido");
+      data: [
+        12,
+        19,
+        25,
+        30,
+        40,
+        52
+      ],
 
-  document.getElementById("tituloMissao")
-    .innerText = missaoAtual;
+      backgroundColor: '#2e7d32'
+    }]
+  },
 
-  carregarCenario();
-}
-
-function carregarCenario() {
-
-  let area =
-    document.getElementById("areaMissao");
-
-  /* CENÁRIOS */
-
-  if (missaoAtual === "🌳 Plantar árvores") {
-
-    area.innerHTML = "🌱";
-
+  options: {
+    responsive: true
   }
-
-  else if (missaoAtual === "♻️ Recolher lixo") {
-
-    area.innerHTML = "🗑️";
-
-  }
-
-  else if (missaoAtual === "💧 Economizar água") {
-
-    area.innerHTML = "🚰";
-
-  }
-
-  else if (missaoAtual === "☀️ Instalar energia solar") {
-
-    area.innerHTML = "🏠";
-
-  }
-}
-
-function executarMissao() {
-
-  let area =
-    document.getElementById("areaMissao");
-
-  /* RESULTADO DA MISSÃO */
-
-  if (missaoAtual === "🌳 Plantar árvores") {
-
-    area.innerHTML = "🌳 🌳 🌳";
-
-  }
-
-  else if (missaoAtual === "♻️ Recolher lixo") {
-
-    area.innerHTML = "♻️";
-
-  }
-
-  else if (missaoAtual === "💧 Economizar água") {
-
-    area.innerHTML = "💧";
-
-  }
-
-  else if (missaoAtual === "☀️ Instalar energia solar") {
-
-    area.innerHTML = "☀️🏠☀️";
-
-  }
-
-  pontos += 10;
-  moedas += 5;
-
-  atualizarPainel();
-
-  alert("✅ Missão concluída!");
-}
-
-function voltarCidade() {
-
-  document.getElementById("missaoTela")
-    .classList.add("escondido");
-
-  document.getElementById("cidadeTela")
-    .classList.remove("escondido");
-
-  novaMissao();
-}
-
-function atualizarPainel() {
-
-  document.getElementById("pontos")
-    .innerText = pontos;
-
-  document.getElementById("moedas")
-    .innerText = moedas;
-}
+});
