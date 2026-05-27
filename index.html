@@ -1,366 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Fazenda World</title>
+  <title>Minha Fazenda</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      font-family:'Poppins', sans-serif;
-      background:#101820;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    /* NAVBAR */
-
-    nav{
-      width:100%;
-      height:80px;
-      background:rgba(0,0,0,0.4);
-      backdrop-filter:blur(10px);
-
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-
-      padding:0 80px;
-
-      position:fixed;
-      top:0;
-      z-index:1000;
-    }
-
-    .logo{
-      font-size:28px;
-      font-weight:700;
-      color:#7CFC00;
-    }
-
-    nav ul{
-      display:flex;
-      gap:35px;
-      list-style:none;
-    }
-
-    nav ul li a{
-      text-decoration:none;
-      color:white;
-      font-weight:500;
-      transition:0.3s;
-    }
-
-    nav ul li a:hover{
-      color:#7CFC00;
-    }
-
-    .btn-play{
-      background:#7CFC00;
-      color:#111;
-      padding:12px 25px;
-      border-radius:30px;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.3s;
-    }
-
-    .btn-play:hover{
-      transform:scale(1.05);
-      background:#9dff33;
-    }
-
-    /* HERO */
-
-    .hero{
-      width:100%;
-      height:100vh;
-
-      background:
-      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
-      url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400&auto=format&fit=crop');
-
-      background-size:cover;
-      background-position:center;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-
-      padding:20px;
-    }
-
-    .hero-content{
-      max-width:850px;
-      animation:fade 1.5s ease;
-    }
-
-    .hero h1{
-      font-size:72px;
-      line-height:1.1;
-      margin-bottom:25px;
-    }
-
-    .hero h1 span{
-      color:#7CFC00;
-    }
-
-    .hero p{
-      font-size:22px;
-      color:#ddd;
-      margin-bottom:40px;
-    }
-
-    .hero-buttons{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .primary-btn{
-      background:#7CFC00;
-      color:#111;
-      padding:16px 35px;
-      border-radius:40px;
-      text-decoration:none;
-      font-size:18px;
-      font-weight:700;
-      transition:0.3s;
-    }
-
-    .primary-btn:hover{
-      transform:translateY(-4px);
-    }
-
-    .secondary-btn{
-      border:2px solid white;
-      color:white;
-      padding:16px 35px;
-      border-radius:40px;
-      text-decoration:none;
-      font-size:18px;
-      transition:0.3s;
-    }
-
-    .secondary-btn:hover{
-      background:white;
-      color:#111;
-    }
-
-    /* FEATURES */
-
-    .features{
-      padding:100px 80px;
-      background:#16232e;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:48px;
-      margin-bottom:60px;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-      gap:30px;
-    }
-
-    .card{
-      background:#1f3342;
-      padding:35px;
-      border-radius:25px;
-      transition:0.4s;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    .card:hover{
-      transform:translateY(-10px);
-    }
-
-    .card h3{
-      font-size:28px;
-      margin-bottom:15px;
-      color:#7CFC00;
-    }
-
-    .card p{
-      color:#ddd;
-      line-height:1.7;
-    }
-
-    /* FOOTER */
-
-    footer{
-      background:#0c141b;
-      text-align:center;
-      padding:30px;
-      color:#aaa;
-    }
-
-    /* ANIMATION */
-
-    @keyframes fade{
-      from{
-        opacity:0;
-        transform:translateY(40px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    /* RESPONSIVO */
-
-    @media(max-width:900px){
-
-      nav{
-        padding:0 20px;
-      }
-
-      nav ul{
-        display:none;
-      }
-
-      .hero h1{
-        font-size:48px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
-
-      .features{
-        padding:80px 20px;
-      }
-
-    }
-
-  </style>
+  <link rel="stylesheet" href="fazenda.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <div class="game">
 
-  <nav>
+    <!-- HUD -->
 
-    <div class="logo">
-      🌾 Fazenda World
+    <div class="hud">
+
+      <h2>🌾 Minha Fazenda</h2>
+
+      <div class="info">
+        💰 Moedas: <span id="coins">100</span>
+      </div>
+
+      <div class="info">
+        🌱 Plantações: <span id="plantsCount">0</span>
+      </div>
+
+      <div class="info">
+        🐄 Animais: 5
+      </div>
+
+      <button onclick="plantar()">
+        🌱 Plantar
+      </button>
+
+      <button onclick="colher()">
+        🚜 Colher
+      </button>
+
     </div>
 
-    <ul>
-      <li><a href="#">Início</a></li>
-      <li><a href="#">Recursos</a></li>
-      <li><a href="#">Animais</a></li>
-      <li><a href="#">Plantações</a></li>
-      <li><a href="#">Contato</a></li>
-    </ul>
+    <!-- SOL -->
 
-    <a href="#" class="btn-play">
-      Jogar Agora
-    </a>
+    <div class="sun"></div>
 
-  </nav>
+    <!-- CASA -->
 
-  <!-- HERO -->
+    <div class="house">
 
-  <section class="hero">
+      <div class="roof"></div>
 
-    <div class="hero-content">
-
-      <h1>
-        Construa a maior <span>fazenda</span> do mundo
-      </h1>
-
-      <p>
-        Plante, colha, cuide dos animais e transforme sua pequena fazenda
-        em um verdadeiro império agrícola.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="#" class="primary-btn">
-          🌱 Começar Agora
-        </a>
-
-        <a href="#" class="secondary-btn">
-          ▶ Ver Trailer
-        </a>
-
+      <div class="base">
+        <div class="door"></div>
       </div>
 
     </div>
 
-  </section>
+    <!-- ÁRVORES -->
 
-  <!-- FEATURES -->
-
-  <section class="features">
-
-    <h2 class="section-title">
-      Recursos do Jogo
-    </h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>🚜 Agricultura</h3>
-        <p>
-          Cultive milho, soja, trigo, frutas e dezenas
-          de plantações incríveis.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🐄 Animais</h3>
-        <p>
-          Cuide de vacas, galinhas, cavalos e muitos
-          outros animais especiais.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🏡 Construções</h3>
-        <p>
-          Expanda sua fazenda com celeiros, silos,
-          mercados e máquinas agrícolas.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🌍 Multiplayer</h3>
-        <p>
-          Visite fazendas de amigos e participe
-          de eventos online.
-        </p>
-      </div>
-
+    <div class="tree tree1">
+      <div class="leaf"></div>
+      <div class="trunk"></div>
     </div>
 
-  </section>
+    <div class="tree tree2">
+      <div class="leaf"></div>
+      <div class="trunk"></div>
+    </div>
 
-  <!-- FOOTER -->
+    <!-- CAMPO -->
 
-  <footer>
-    © 2026 Fazenda World • Todos os direitos reservados
-  </footer>
+    <div class="field" id="field"></div>
+
+    <!-- PERSONAGEM -->
+
+    <div class="player" id="player">
+      🚜
+    </div>
+
+  </div>
+
+  <script src="fazenda.js"></script>
 
 </body>
 </html>
