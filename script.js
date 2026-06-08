@@ -1,98 +1,34 @@
-// Aguarda o carregamento completo da página
-document.addEventListener("DOMContentLoaded", () => {
+// Mensagem de boas-vindas
+window.onload = function() {
+    alert("Bem-vindo ao site sobre Equilíbrio entre Produção e Meio Ambiente!");
+};
 
-    // ==========================
-    // ANIMAÇÃO DAS SEÇÕES
-    // ==========================
+// Botão voltar ao topo
+const botaoTopo = document.createElement("button");
+botaoTopo.innerHTML = "↑";
+botaoTopo.classList.add("botao-topo");
+document.body.appendChild(botaoTopo);
 
-    const sections = document.querySelectorAll(".section-content, .video-container");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        botaoTopo.style.display = "block";
+    } else {
+        botaoTopo.style.display = "none";
+    }
+});
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("fade-in");
-                }
-            });
-        },
-        {
-            threshold: 0.15
-        }
-    );
-
-    sections.forEach((section) => {
-        observer.observe(section);
+botaoTopo.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
+});
 
-    // ==========================
-    // MENU ATIVO AUTOMÁTICO
-    // ==========================
+// Destacar seção ao clicar no menu
+const links = document.querySelectorAll("nav a");
 
-    const navLinks = document.querySelectorAll(".navbar-menu a");
-
-    window.addEventListener("scroll", () => {
-
-        let currentSection = "";
-
-        document.querySelectorAll("section").forEach((section) => {
-
-            const sectionTop = section.offsetTop - 150;
-
-            if (window.scrollY >= sectionTop) {
-                currentSection = section.getAttribute("id");
-            }
-        });
-
-        navLinks.forEach((link) => {
-
-            link.classList.remove("active");
-
-            if (
-                link.getAttribute("href") === `#${currentSection}`
-            ) {
-                link.classList.add("active");
-            }
-        });
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        alert(`Você está acessando a seção: ${link.textContent}`);
     });
-
-    // ==========================
-    // ROLAGEM SUAVE
-    // ==========================
-
-    navLinks.forEach((link) => {
-
-        link.addEventListener("click", (e) => {
-
-            e.preventDefault();
-
-            const targetId = link.getAttribute("href");
-
-            const targetSection = document.querySelector(targetId);
-
-            window.scrollTo({
-                top: targetSection.offsetTop - 80,
-                behavior: "smooth"
-            });
-        });
-    });
-
-    // ==========================
-    // ANIMAÇÃO DAS BARRAS
-    // ==========================
-
-    const bars = document.querySelectorAll(".chart-bars li");
-
-    bars.forEach((bar) => {
-
-        const finalHeight =
-            bar.style.getPropertyValue("--bar-height");
-
-        bar.style.height = "0";
-
-        setTimeout(() => {
-            bar.style.height = finalHeight;
-        }, 500);
-    });
-
 });
