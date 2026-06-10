@@ -107,6 +107,15 @@
     .botao-topo:hover {
         background-color: #246b45;
     }
+
+    /* Destaque para curiosidades */
+    .curiosidade {
+        background-color: #e6f2e6;
+        border-left: 5px solid #2e8b57;
+        padding: 10px 15px;
+        margin: 15px 0;
+        font-style: italic;
+    }
 </style>
 </head>
 
@@ -120,6 +129,12 @@
 <nav>
     <a href="#introducao">Introdução</a>
     <a href="#desenvolvimento">Desenvolvimento</a>
+    <a href="#problemas">Problemas</a>
+    <a href="#causas">Causas</a>
+    <a href="#consequencias">Consequências</a>
+    <a href="#dados">Dados Atuais</a>
+    <a href="#combater">Como Combater</a>
+    <a href="#curiosidades">Curiosidades</a>
     <a href="#conclusao">Conclusão</a>
     <a href="#referencias">Referências</a>
 </nav>
@@ -137,24 +152,20 @@
 
 <section id="desenvolvimento">
     <h2>Desenvolvimento</h2>
-
     <p>
         O equilíbrio entre produção e meio ambiente é um dos pilares do <span class="highlight">desenvolvimento sustentável</span>. 
         Empresas e governos têm investido cada vez mais em <span class="highlight">práticas sustentáveis</span>, como o uso de 
         <span class="highlight">energias renováveis</span>, <span class="highlight">reciclagem de materiais</span> e manejo sustentável dos recursos naturais.
     </p>
-
     <p>
         A <span class="highlight">produção sustentável</span> permite que as atividades econômicas continuem gerando emprego e renda,
         ao mesmo tempo em que preservam <span class="highlight">ecossistemas</span> e recursos essenciais, como <span class="highlight">água</span>, 
         <span class="highlight">solo</span> e <span class="highlight">biodiversidade</span>. Além disso, consumidores estão cada vez mais conscientes 
         e valorizam produtos fabricados de forma responsável.
     </p>
-
     <p>
         Entre as principais ações para promover esse equilíbrio estão:
     </p>
-
     <ul>
         <li>Redução da emissão de poluentes;</li>
         <li>Uso eficiente dos recursos naturais;</li>
@@ -164,67 +175,50 @@
     </ul>
 </section>
 
-<section id="conclusao">
-    <h2>Conclusão</h2>
-    <p>
-        Manter o equilíbrio entre produção e meio ambiente é indispensável para garantir um futuro sustentável.
-        O <span class="highlight">desenvolvimento econômico</span> não precisa ocorrer à custa da <span class="highlight">degradação ambiental</span>. 
-        Com planejamento, inovação e responsabilidade, é possível produzir de forma eficiente enquanto se preservam os 
-        <span class="highlight">recursos naturais</span> necessários para a vida no planeta. Dessa forma, todos — governos, empresas e cidadãos — 
-        têm um papel importante na construção de uma sociedade mais sustentável.
-    </p>
-</section>
-
-<section id="referencias">
-    <h2>Referências</h2>
+<section id="problemas">
+    <h2>Problemas Ambientais</h2>
     <ul>
-        <li>Relatório do PNUMA (Programa das Nações Unidas para o Meio Ambiente). (2020). Perspectivas do Meio Ambiente Global. Disponível em: <a href="https://www.unep.org" target="_blank">https://www.unep.org</a></li>
-        <li>Hart, S. L. (1997). Beyond greening: Strategies for a sustainable world. Harvard Business Review, 75(1), 66–76.</li>
-        <li>UNEP (2019). Global Environment Outlook – GEO-6: Healthy Planet, Healthy People. Nairobi: United Nations Environment Programme.</li>
-        <li>Sachs, I. (2010). Desenvolvimento sustentável: a dimensão do futuro. Rio de Janeiro: Garamond.</li>
+        <li><span class="highlight">Desmatamento</span> em áreas tropicais;</li>
+        <li><span class="highlight">Poluição do ar, água e solo</span> causada pela indústria;</li>
+        <li><span class="highlight">Perda de biodiversidade</span>;</li>
+        <li><span class="highlight">Mudanças climáticas</span> devido à emissão de gases de efeito estufa;</li>
+        <li><span class="highlight">Esgotamento de recursos naturais</span>.</li>
     </ul>
 </section>
 
-<footer>
-    <p>&copy; 2026 - Equilíbrio entre Produção e Meio Ambiente</p>
-</footer>
+<section id="causas">
+    <h2>Causas</h2>
+    <ul>
+        <li>Exploração excessiva de florestas, solos e recursos hídricos;</li>
+        <li>Uso intenso de combustíveis fósseis e energia poluente;</li>
+        <li>Produção industrial sem controle ambiental;</li>
+        <li>Consumo irresponsável de produtos e recursos;</li>
+        <li>Falta de políticas públicas de preservação ambiental.</li>
+    </ul>
+</section>
 
-<!-- Botão voltar ao topo -->
-<button class="botao-topo" id="botaoTopo">↑</button>
+<section id="consequencias">
+    <h2>Consequências</h2>
+    <ul>
+        <li>Aumento da temperatura global e eventos climáticos extremos;</li>
+        <li>Escassez de água potável;</li>
+        <li>Extinção de espécies e desequilíbrio ecológico;</li>
+        <li>Impactos econômicos em agricultura, pesca e turismo;</li>
+        <li>Problemas de saúde pública devido à poluição.</li>
+    </ul>
+</section>
 
-<script>
-    // Mensagem de boas-vindas
-    window.onload = function() {
-        alert("Bem-vindo ao site sobre Equilíbrio entre Produção e Meio Ambiente!");
-    };
+<section id="dados">
+    <h2>Dados Atuais</h2>
+    <ul>
+        <li>Segundo a ONU, cerca de 10 milhões de hectares de floresta são desmatados anualmente.</li>
+        <li>Mais de 80% das águas residuais no mundo são despejadas sem tratamento.</li>
+        <li>Emissões globais de CO₂ atingiram 36,3 bilhões de toneladas em 2022.</li>
+        <li>O desperdício de alimentos chega a 1,3 bilhão de toneladas por ano, impactando recursos naturais.</li>
+    </ul>
+</section>
 
-    // Botão voltar ao topo
-    const botaoTopo = document.getElementById("botaoTopo");
-
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            botaoTopo.style.display = "block";
-        } else {
-            botaoTopo.style.display = "none";
-        }
-    });
-
-    botaoTopo.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-
-    // Alerta ao clicar no menu
-    const links = document.querySelectorAll("nav a");
-
-    links.forEach(link => {
-        link.addEventListener("click", (e) => {
-            alert(`Você está acessando a seção: ${link.textContent}`);
-        });
-    });
-</script>
-
-</body>
-</html>
+<section id="combater">
+    <h2>Como Combater</h2>
+    <ul>
+        <li>Investir em <span class="highlight">energias limpas</span> e renov
